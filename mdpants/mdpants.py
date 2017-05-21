@@ -182,13 +182,13 @@ def main(argv = None):
 
     if args['bin']:
         if not os.path.isfile(str(args['bin'])):
-            print(args['bin'] + ": no such file or directory")
+            print((args['bin'] + ": no such file or directory"))
             sys.exit(2)
         mode = 'binary'
         wordlist_filename = args['bin']
     elif args['in']:
         if not os.path.isfile(str(args['in'])):
-            print(args['in'] + ": no such file or directory")
+            print((args['in'] + ": no such file or directory"))
             sys.exit(2)
         mode = 'text'
         wordlist_filename = args['in']
@@ -201,7 +201,7 @@ def main(argv = None):
     indices = get_indices(seed, args['num_words'])
     words = fetch_words(wordlist_filename, indices, mode)
 
-    print(args['concat'].join(words).encode('utf-8'))
+    print((args['concat'].join(words).encode('utf-8')))
 
     # print('# words in list: {}'.format(len_wordlist))
     # print('indices: {}'.format(indices))

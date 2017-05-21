@@ -10,7 +10,7 @@ import numpy
 import codecs
 import struct
 
-from mdpants import accept_line
+from .mdpants import accept_line
 
 def wordlist_stats(filename):
     '''
@@ -49,7 +49,7 @@ def rewrite(infilename, outfilename, stats):
                     continue
                 # Write the stripped line to outfile, append newline
                 line = line.strip() + '\n'
-                outfile.write(unicode(line))
+                outfile.write(str(line))
                 # Pad with 0 bytes until max_line bytes are reached
                 rem = stats['max_line'] - _len_word(line)
                 outfile.write(b'\x00'*rem)
@@ -82,7 +82,7 @@ def get_word(infilename, index):
         f.seek(max_line*index, os.SEEK_CUR)
         word = f.read(max_line)
         word = word[:word.index(b'\x0a')].decode('utf-8')
-    print(word.encode('utf-8'))
+    print((word.encode('utf-8')))
 
 def fetch_words(filename, indices):
     if len(indices) == 0: return []

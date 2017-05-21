@@ -83,5 +83,5 @@ def test_extract_sparse_non_ascii():
     count = mdpants.len_wordlist('tests/lists/emoticons.txt')
     words = mdpants.fetch_words('tests/lists/emoticons.txt',
         [0.0/count, 8.0/count, 17.0/count], 'text')
-    assert words == [u'😚', u'😢', u'😫']
+    assert words == ['😚', '😢', '😫']
 
